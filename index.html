@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Morning Sayang</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sunrise-orange: #ff7e5f;
+            --sunrise-yellow: #feb47b;
+            --morning-blue: #6a89cc;
+            --soft-pink: #ffafbd;
+            --light-color: #fff;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--sunrise-orange), var(--sunrise-yellow), var(--soft-pink));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container-custom {
+            max-width: 1200px;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        
+        .header-section {
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .header-section h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .header-section p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .sun-section {
+            position: relative;
+            height: 200px;
+            margin: 3rem 0;
+        }
+        
+        .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at 30px 30px, #ffd700, #ff8c00);
+            border-radius: 50%;
+            box-shadow: 0 0 40px #ff8c00, 0 0 80px rgba(255, 140, 0, 0.5);
+            animation: sunRise 4s ease-in-out infinite alternate;
+        }
+        
+        .sun-rays {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, rgba(255,215,0,0) 70%);
+            animation: raysPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes sunRise {
+            0% { transform: translate(-50%, -40%); }
+            100% { transform: translate(-50%, -50%); }
+        }
+        
+        @keyframes raysPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+        
+        .message-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: transform 0.3s ease;
+        }
+        
+        .message-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .message-card h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--sunrise-orange);
+            text-align: center;
+        }
+        
+        .message-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .romantic-quote {
+            font-style: italic;
+            text-align: center;
+            padding: 1.5rem;
+            border-left: 3px solid var(--soft-pink);
+            background: rgba(255, 175, 189, 0.1);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+            color: #555;
+        }
+        
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            opacity: 0.7;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .cloud {
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        
+        .heart {
+            color: var(--soft-pink);
+            font-size: 1.5rem;
+        }
+        
+        .bird {
+            color: #6a89cc;
+            font-size: 1.2rem;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+        
+        .footer-section {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+        
+        .music-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .music-btn {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: var(--sunrise-orange);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .music-btn:hover {
+            background: white;
+            transform: scale(1.1);
+            color: var(--soft-pink);
+        }
+        
+        .song-title {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-align: center;
+            color: #555;
+        }
+        
+        .coffee-icon {
+            font-size: 2rem;
+            color: #6f4e37;
+            margin: 0 10px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .wish-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .wish-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .wish-list li:before {
+            content: "❤";
+            position: absolute;
+            left: 0;
+            color: var(--soft-pink);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-section h1 {
+                font-size: 3rem;
+            }
+            
+            .header-section p {
+                font-size: 1.2rem;
+            }
+            
+            .message-card h3 {
+                font-size: 2rem;
+            }
+            
+            .sun {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .message-card {
+                padding: 1.5rem;
+            }
+            
+            .romantic-quote {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <div class="container container-custom">
+        <!-- Header Section -->
+        <div class="header-section">
+            <h1>Good Morning, Sayangku</h1>
+            <p>Hari yang indah dimulai dengan memikirkan kamu <i class="fas fa-heart"></i></p>
+        </div>
+        
+        <!-- Sun Section -->
+        <div class="sun-section">
+            <div class="sun-rays"></div>
+            <div class="sun"></div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="message-card">
+                    <h3>Selamat Pagi Cantik</h3>
+                    <p>Sayangku, semoga pagi ini membawa senyuman untuk wajah kamu dan kehangatan untuk hati kamu. DImas berharap kamu memiliki hari yang menyenangkan penuh dengan kebahagiaan.</p>
+                    
+                    <div class="romantic-quote">
+                        "Matahari terbit untuk mengingatkan dimas pada kecantikan kamu, dan pagi datang untuk mengingatkan dimas pada cinta dimas pada kamu."
+                    </div>
+                    
+                    <p>Jangan lupa sarapan yang bergizi ya! <i class="fas fa-coffee coffee-icon"></i> <i class="fas fa-bread-slice"></i></p>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="message-card">
+                    <h3>Harapan Pagi dimas</h3>
+                    <p>Di pagi yang cerah ini, dimas berharap:</p>
+                    <ul class="wish-list">
+                        <li>Kamu bangun dengan perasaan bahagia</li>
+                        <li>Energi positif menyertai sepanjang hari kamu</li>
+                        <li>Kamu tersenyum lebih sering daripada kemarin</li>
+                        <li>Semua impian kamu perlahan menjadi kenyataan</li>
+                        <li>Kamu merasa dicintai setiap saat</li>
+                    </ul>
+                    
+                    <div class="romantic-quote">
+                        "Pagi tanpa memikirkan kamu adalah pagi yang belum sempurna."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Second Row -->
+        <div class="row">
+            <div class="col-12">
+                <div class="message-card text-center">
+                    <h3>Pagi dan Cinta Kita</h3>
+                    <p>Setiap pagi adalah pengingat bahwa kita diberikan kesempatan baru untuk mencintai, tertawa, dan menciptakan kenangan indah bersama.</p>
+                    
+                    <p class="romantic-quote">
+                        "Jika pagi adalah awal dari cerita, maka kamu adalah karakter utamanya. Jika hari adalah sebuah lagu, maka kamu adalah melodinya."
+                    </p>
+                    
+                    <div class="music-controls">
+                        <button id="playBtn" class="music-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button id="pauseBtn" class="music-btn">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button id="stopBtn" class="music-btn">
+                            <i class="fas fa-stop"></i>
+                        </button>
+                        <button id="volumeUp" class="music-btn">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <button id="volumeDown" class="music-btn">
+                            <i class="fas fa-volume-down"></i>
+                        </button>
+                    </div>
+                    <div class="song-title">Lagu: Beautiful Morning - Romantic Piano</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer-section">
+            <p>Dibuat dengan <i class="fas fa-heart" style="color: var(--soft-pink);"></i> untuk pagi yang lebih indah bersama kamu</p>
+            <p class="mt-2">© 2025 - Setiap pagi adalah anugerah dengan kamu</p>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="romanticSong" loop>
+        <source src="ssstik.io_1759168299824.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const romanticSong = document.getElementById('romanticSong');
+            const playBtn = document.getElementById('playBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const stopBtn = document.getElementById('stopBtn');
+            const volumeUp = document.getElementById('volumeUp');
+            const volumeDown = document.getElementById('volumeDown');
+            const floatingElements = document.getElementById('floatingElements');
+            
+            // Set initial volume
+            romanticSong.volume = 0.5;
+            
+            // Create floating elements
+            function createFloatingElements() {
+                const elementsCount = 20;
+                
+                for (let i = 0; i < elementsCount; i++) {
+                    const element = document.createElement('div');
+                    element.classList.add('floating-element');
+                    
+                    // Random position
+                    element.style.left = `${Math.random() * 100}vw`;
+                    element.style.top = `${Math.random() * 100}vh`;
+                    
+                    // Random animation delay
+                    element.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    // Random element type
+                    const elementType = Math.random();
+                    if (elementType < 0.3) {
+                        // Cloud
+                        element.classList.add('cloud');
+                        element.style.width = `${Math.random() * 60 + 30}px`;
+                        element.style.height = `${Math.random() * 40 + 20}px`;
+                    } else if (elementType < 0.6) {
+                        // Heart
+                        element.classList.add('heart');
+                        element.innerHTML = '<i class="fas fa-heart"></i>';
+                    } else {
+                        // Bird
+                        element.classList.add('bird');
+                        element.innerHTML = '<i class="fas fa-dove"></i>';
+                    }
+                    
+                    floatingElements.appendChild(element);
+                }
+            }
+            
+            // Music controls
+            playBtn.addEventListener('click', function() {
+                romanticSong.play();
+            });
+            
+            pauseBtn.addEventListener('click', function() {
+                romanticSong.pause();
+            });
+            
+            stopBtn.addEventListener('click', function() {
+                romanticSong.pause();
+                romanticSong.currentTime = 0;
+            });
+            
+            volumeUp.addEventListener('click', function() {
+                if (romanticSong.volume < 1) {
+                    romanticSong.volume += 0.1;
+                }
+            });
+            
+            volumeDown.addEventListener('click', function() {
+                if (romanticSong.volume > 0) {
+                    romanticSong.volume -= 0.1;
+                }
+            });
+            
+            // Auto-play music with user interaction
+            document.body.addEventListener('click', function initAudio() {
+                // Play music softly on first interaction
+                romanticSong.play().catch(e => {
+                    console.log("Autoplay prevented:", e);
+                });
+                
+                // Remove this event listener after first interaction
+                document.body.removeEventListener('click', initAudio);
+            });
+            
+            // Initialize floating elements
+            createFloatingElements();
+            
+            // Add greeting based on time of day
+            const header = document.querySelector('.header-section h1');
+            const currentHour = new Date().getHours();
+            let greeting = "Good Morning";
+            
+            if (currentHour >= 12 && currentHour < 18) {
+                greeting = "Good Afternoon";
+            } else if (currentHour >= 18) {
+                greeting = "Good Evening";
+            }
+            
+            header.textContent = `${greeting}, Sayangku`;
+        });
+    </script>
+</body>
+</html>
